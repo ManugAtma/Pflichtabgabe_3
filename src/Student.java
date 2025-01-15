@@ -5,10 +5,10 @@ public class Student implements StudentInterface, Comparable<Student> {
 
 
     public Student() {
-        matriculationNo = (int) Math.round((Math.random() * 999999));
+        matriculationNo = (int) Math.round((Math.random() * (999999 - 100000 ) + 100000)); // random 6 digit matriculation number
         name = "unknown";
         course = "unknown";
-        System.out.println("Student with unknown name, unknown course and randomly generated matriculationNo " + matriculationNo + " was created.");
+        System.out.println("Default student with unknown name, unknown course and randomly generated matriculationNo " + matriculationNo + " was created.");
     }
 
     /**
@@ -26,12 +26,9 @@ public class Student implements StudentInterface, Comparable<Student> {
     public Student(int m, String n, String c)
             throws IllegalArgumentException, NullPointerException {
         if (m < 100000 || m > 999999) throw new IllegalArgumentException("invalid matriculation number");
-        if (n == null || c == null) throw new NullPointerException("No argument can be null");
-        if (n.isEmpty() || c.isEmpty()) throw new IllegalArgumentException("No argument can be empty");
-
         matriculationNo = m;
-        name = n;
-        course = c;
+        setName(n);
+        setCourse(c);
     }
 
     @Override

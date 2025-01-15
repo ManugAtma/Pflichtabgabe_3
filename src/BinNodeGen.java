@@ -7,7 +7,7 @@ public class BinNodeGen<E> {
 
     public BinNodeGen(E data, BinNodeGen<E> left, BinNodeGen<E> right)
             throws NullPointerException {
-        if (left == null || right == null || data == null) throw new NullPointerException();
+        if (data == null) throw new NullPointerException("data cannot be null");
         this.data = data;
         this.left = left;
         this.right = right;
@@ -15,7 +15,7 @@ public class BinNodeGen<E> {
     }
 
     public BinNodeGen(E data) throws NullPointerException {
-        if (data == null) throw new NullPointerException();
+        if (data == null) throw new NullPointerException("data cannot be null");
         this.data = data;
     }
 }
@@ -25,4 +25,5 @@ public class BinNodeGen<E> {
 // MatrNr, parameterloser Konstruktor Student?
 // Eindeutigkeit der MAtrNr außerhalb von StudentManagement prüfen?
 // Pakete nutzen?
-// insbesondere Verwendung von Konstanten
+// "insbesondere Verwendung von Konstanten"
+// parameterloser Konstruktor (von Student) auf private ("zur Verfügung")?

@@ -6,7 +6,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
 
     // for testing only
     BinTreeGen(BinNodeGen<E> root) throws NullPointerException {
-        if (root == null) throw new NullPointerException();
+        if (root == null) throw new NullPointerException("root cannot be null");
         this.root = root;
     }
 
@@ -81,7 +81,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
 
     @Override
     public BinNodeGen<E> find(E item) throws NullPointerException {
-        if (item == null) throw new NullPointerException();
+        if (item == null) throw new NullPointerException("item cannot be null");
         return find(item, root);
     }
 

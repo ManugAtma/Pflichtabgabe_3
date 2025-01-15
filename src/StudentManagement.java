@@ -16,7 +16,7 @@ public class StudentManagement extends BinTreeGen<Student> implements StudentMan
     @Override
     public Student searchStudent(int matrNo) throws IllegalArgumentException {
         if (matrNo < 100000 || matrNo > 999999) throw new IllegalArgumentException("invalid matriculation number");
-        Student p = new Student(matrNo, "p", "p");
+        Student p = new Student(matrNo, "p", "p"); // serves as argument for find
         BinNodeGen<Student> result = find(p);
         return result == null ? null : result.data;
     }
