@@ -1,4 +1,4 @@
-public abstract class TestStuff {
+public class TestStuff {
     final int f;
 
     TestStuff(){
@@ -10,5 +10,5 @@ public abstract class TestStuff {
         System.out.println("hi");
     }
 
-    abstract void doSth();
+    void doSth(){}
 }
