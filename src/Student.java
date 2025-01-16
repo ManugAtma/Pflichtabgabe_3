@@ -3,12 +3,14 @@ public class Student implements StudentInterface, Comparable<Student> {
     private String name;
     private String course;
 
-
+    /**
+     * creates a default student object with name 'unknown', course 'unknown' and matriculation number 100000
+     */
     public Student() {
-        matriculationNo = (int) Math.round((Math.random() * (999999 - 100000 ) + 100000)); // random 6 digit matriculation number
+        matriculationNo = 100000; // default 6 digit matriculation number
         name = "unknown";
         course = "unknown";
-        System.out.println("Default student with unknown name, unknown course and randomly generated matriculationNo " + matriculationNo + " was created.");
+        System.out.println("Default student with name 'unknown', course 'unknown' and matriculation number " + matriculationNo + " was created.");
     }
 
     /**
@@ -53,6 +55,7 @@ public class Student implements StudentInterface, Comparable<Student> {
         return course;
     }
 
+    @Override
     public void setCourse(String course) throws NullPointerException, IllegalArgumentException {
         if (course == null) throw new NullPointerException("course cannot be null");
         if (course.isEmpty()) throw new IllegalArgumentException("course cannot be empty");

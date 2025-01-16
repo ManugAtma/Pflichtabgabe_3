@@ -20,10 +20,3 @@ public class BinNodeGen<E> {
     }
 }
 
-// doc comments for constructors? also for BinTreeGen
-// default access for constructors?
-// MatrNr, parameterloser Konstruktor Student?
-// Eindeutigkeit der MAtrNr außerhalb von StudentManagement prüfen?
-// Pakete nutzen?
-// "insbesondere Verwendung von Konstanten"
-// parameterloser Konstruktor (von Student) auf private ("zur Verfügung")?

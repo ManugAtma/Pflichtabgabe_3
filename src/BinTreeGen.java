@@ -4,12 +4,10 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
     public BinTreeGen() {
     }
 
-    // for testing only
-    BinTreeGen(BinNodeGen<E> root) throws NullPointerException {
+    public BinTreeGen(BinNodeGen<E> root) throws NullPointerException {
         if (root == null) throw new NullPointerException("root cannot be null");
         this.root = root;
     }
-
 
     @Override
     public int countNodes() {
@@ -44,7 +42,6 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
         return insertNode(root, item);
     }
 
-
     /**
      * inserts a given item into a sorted (sub)tree with given root in a sorted manner
      * (i.e. maintaining the sorting) if the item does not already exist
@@ -57,6 +54,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
      */
     private boolean insertNode(BinNodeGen<E> root, E item) {
 
+        // if element that is to be inserted is smaller than the currently viewed node (root)
         if (root.data.compareTo(item) > 0) {
             if (root.left == null) {
                 root.left = new BinNodeGen<>(item);
@@ -66,6 +64,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
             }
         }
 
+        // if element that is to be inserted is bigger than the currently viewed node (root)
         if (root.data.compareTo(item) < 0) {
             if (root.right == null) {
                 root.right = new BinNodeGen<>(item);
@@ -75,7 +74,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
             }
         }
 
-        return false; // root.data.compareTo(item) == 0, item already exists
+        return false; // if root.data.compareTo(item) == 0, that means item already exists in tree
     }
 
 
@@ -94,9 +93,9 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
      * @return node with the sought item or null if such a node does not exist
      */
     private BinNodeGen<E> find(E item, BinNodeGen<E> root) {
-        if (root == null) return null;
-        if (item.compareTo(root.data) < 0) return find(item, root.left);
-        if (item.compareTo(root.data) > 0) return find(item, root.right);
+        if (root == null) return null;  // in case of empty tree
+        if (item.compareTo(root.data) < 0) return find(item, root.left); // if sought item is smaller than currently viewed node (root)
+        if (item.compareTo(root.data) > 0) return find(item, root.right); // if sought item is bigger than currently viewed node (root)
         return root;
     }
 
@@ -112,7 +111,7 @@ public class BinTreeGen<E extends Comparable<E>> implements BinTreeGenInterface<
      * @return String serialization of all nodes of the tree
      */
     private String toString(BinNodeGen<E> root) {
-        if (root == null) return "";
+        if (root == null) return "";  // in case of empty tree
         return "(" + toString(root.left) + root.data + toString(root.right) + ")";
     }
 }
