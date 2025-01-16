@@ -7,9 +7,7 @@ public class Student implements StudentInterface, Comparable<Student> {
      * creates a default student object with name 'unknown', course 'unknown' and matriculation number 100000
      */
     public Student() {
-        matriculationNo = 100000; // default 6 digit matriculation number
-        name = "unknown";
-        course = "unknown";
+        this(100000, "unknown", "unknown"); // default 6 digit matriculation number
         System.out.println("Default student with name 'unknown', course 'unknown' and matriculation number " + matriculationNo + " was created.");
     }
 
@@ -69,7 +67,7 @@ public class Student implements StudentInterface, Comparable<Student> {
 
     @Override
     public int compareTo(Student s) throws NullPointerException {
-        if(s == null) throw new NullPointerException("s cannot be null");
+        if (s == null) throw new NullPointerException("s cannot be null");
         return this.matriculationNo - s.getMatriculationNo();
     }
 }

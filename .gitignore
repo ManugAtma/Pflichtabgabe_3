@@ -3,7 +3,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 src/TestStuff.java
-
+tests/JohannaUniversityManagementTest.java
+tests/CemreBinTreeGenTest.java
+tests/CemreStudentTest.java
+tests/CemreBinNodeTest.java
 
 ### Eclipse ###
 .apt_generated
